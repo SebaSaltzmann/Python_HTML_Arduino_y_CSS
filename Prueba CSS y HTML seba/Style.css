@@ -1,0 +1,24 @@
+table, th, td {
+  border: 1px solid black;
+  }
+
+th, td{
+  background-color: rgb(255, 174, 0);
+  }
+
+.centrado{
+  background: center;
+}
+
+body{
+  background-image: url(https://misfotosecuencias.com.ar/wp-content/uploads/2012/05/la-parrilla-raul-ferreyra-450x338.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+}
+
+header{
+  border: 20px solid black;
+  margin: auto;
+
+}
