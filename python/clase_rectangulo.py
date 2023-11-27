@@ -11,7 +11,7 @@ class Rectangulo:
         return self.calcular_area
 
     def calcularperimetro(self):
-        self.calcular_perimetro = (self.calcular_area + self.altura) ** 2
+        self.calcular_perimetro = (self.calcular_area + self.altura) * 2
         return self.calcular_perimetro
 
 
