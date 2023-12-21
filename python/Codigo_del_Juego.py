@@ -6,7 +6,7 @@ class Espada:
         self.daño = daño
         self.x = x
         self.y = y
-        self.nombre = (input("ingrese el nombre de su personaje"))
+        self.nombre = nombre
 
     def mover_arriba(self):
         self.y += 1
@@ -19,6 +19,10 @@ class Espada:
 
     def mover_derecha(self):
         self.x += 1
+
+    def asignar_nombre(self):
+        self.nombre = (input("ingrese el nombre de su espada: "))
+        return self.nombre
 
 class Personaje:
     def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y):
@@ -35,15 +39,6 @@ class Personaje:
     def equipar_espada(self, espada):
         self.espada = espada
 
-    def atacar(self, objetivo):
-        if self.espada is not None:
-            danio_total = self.fuerza + self.espada.daño
-            objetivo.vida -= danio_total
-            print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
-        else:
-            print("No tienes una espada equipada.")
-
-    
     def movimiento(self, direccion):
         direccion = (input("ingrese a que direccion quiere ir: "))
         print(""" opciones :
@@ -98,6 +93,15 @@ class Dragon:
         objetivo.vida -= danio_total
         print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
 
+
+def ataque_personaje(self, objetivo):
+    if self.espada is not None:
+        danio_total = self.fuerza + self.espada.daño
+        objetivo.vida -= danio_total
+        print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
+    else:
+        print("No tienes una espada equipada.")
+
 # Crear objetos
 Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0)
 obj2 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
@@ -109,7 +113,8 @@ Espada1 = Espada(500, 2, 2)
 if Elfo.x == Espada1.x and Elfo.y == Espada1.y:
     print("¡Colisión! El personaje ha recogido la espada.")
     Elfo.equipar_espada(Espada1)
-    
+    Espada1.asignar_nombre()
+
 
 # Realizar un ataque del personaje al dragón
 if Elfo.espada is not None:
