@@ -94,17 +94,9 @@ class Dragon:
         print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
 
 
-def ataque_personaje(self, objetivo):
-    if self.espada is not None:
-        danio_total = self.fuerza + self.espada.daño
-        objetivo.vida -= danio_total
-        print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
-    else:
-        print("No tienes una espada equipada.")
-
 # Crear objetos
 Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0)
-obj2 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
+Dragon1 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
 Espada1 = Espada(500, 2, 2)
 
 
@@ -115,8 +107,17 @@ if Elfo.x == Espada1.x and Elfo.y == Espada1.y:
     Elfo.equipar_espada(Espada1)
     Espada1.asignar_nombre()
 
+# Ataque de Elfo
+def ataque_personaje():
+    if Espada1 is not None:
+        danio_total = Elfo.fuerza + Espada1.daño
+        Dragon1.vida -= danio_total
+        print(f"{Elfo.raza} atacó a {Dragon1.raza} con un daño de {danio_total}")
+    else:
+        print("No tienes una espada equipada.")
+
 
 # Realizar un ataque del personaje al dragón
 if Elfo.espada is not None:
-    Elfo.atacar(obj2)
-    print(f"{obj2.raza} tiene {obj2.vida} puntos de vida restantes.")
+    Elfo.atacar(Dragon1)
+    print(f"{Dragon1.raza} tiene {Dragon1.vida} puntos de vida restantes.")
