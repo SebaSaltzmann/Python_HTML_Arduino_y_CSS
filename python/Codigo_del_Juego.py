@@ -78,15 +78,17 @@ class Dragon:
         self.x = x
         self.y = y
     
-    def movimiento(self, direccion):
-        if direccion == "arriba":
-            self.y += self.velocidad
-        elif direccion == "abajo":
-            self.y -= self.velocidad
-        elif direccion == "izquierda":
-            self.x -= self.velocidad
-        elif direccion == "derecha":
-            self.x += self.velocidad
+    def mover_arriba(self):
+        self.y += 1
+
+    def mover_abajo(self):
+        self.y -= 1
+
+    def mover_izquierda(self):
+        self.x -= 1
+
+    def mover_derecha(self):
+        self.x += 1
 
     def atacar(self, objetivo):
         danio_total = self.fuerza
@@ -95,22 +97,22 @@ class Dragon:
 
 
 # Crear objetos
-Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0)
+Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 2, 2)
 Dragon1 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
-Espada1 = Espada(500, 2, 2)
+Excalibur = Espada(500, "nombre", 2, 2)
 
 
 
 # Verificar colisión entre el personaje y la espada
-if Elfo.x == Espada1.x and Elfo.y == Espada1.y:
+if Elfo.x == Excalibur.x and Elfo.y == Excalibur.y:
     print("¡Colisión! El personaje ha recogido la espada.")
-    Elfo.equipar_espada(Espada1)
-    Espada1.asignar_nombre()
+    Elfo.equipar_espada(Excalibur)
+    Excalibur.asignar_nombre()
 
 # Ataque de Elfo
 def ataque_personaje():
-    if Espada1 is not None:
-        danio_total = Elfo.fuerza + Espada1.daño
+    if Excalibur is not None:
+        danio_total = Elfo.fuerza + Excalibur.daño
         Dragon1.vida -= danio_total
         print(f"{Elfo.raza} atacó a {Dragon1.raza} con un daño de {danio_total}")
     else:
@@ -119,5 +121,5 @@ def ataque_personaje():
 
 # Realizar un ataque del personaje al dragón
 if Elfo.espada is not None:
-    Elfo.atacar(Dragon1)
+    ataque_personaje()
     print(f"{Dragon1.raza} tiene {Dragon1.vida} puntos de vida restantes.")

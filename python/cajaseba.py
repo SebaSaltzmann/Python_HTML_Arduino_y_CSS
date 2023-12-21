@@ -77,5 +77,5 @@ while True:
     except ValueError:  #exepcion de caracter en datos ingresados
         print("Dato no valiido, reinicio al menu()")
         print("---------------------------")
-#probando por primera vez el GitHub el 13/05/2023
+
 print("fin")
