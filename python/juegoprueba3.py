@@ -2,10 +2,11 @@ import random
 import tkinter as tk
 #random.randint()
 class Espada:
-    def __init__(self, daño, x, y):
+    def __init__(self, daño, nombre, x, y):
         self.daño = daño
         self.x = x
         self.y = y
+        self.nombre = (input("ingrese el nombre de su personaje"))
 
     def mover_arriba(self):
         self.y += 1
@@ -98,16 +99,19 @@ class Dragon:
         print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
 
 # Crear objetos
-obj1 = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0)
+Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0)
 obj2 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
-obj3 = Espada(500, 2, 2)
+Espada1 = Espada(500, 2, 2)
+
+
 
 # Verificar colisión entre el personaje y la espada
-if obj1.x == obj3.x and obj1.y == obj3.y:
+if Elfo.x == Espada1.x and Elfo.y == Espada1.y:
     print("¡Colisión! El personaje ha recogido la espada.")
-    obj1.equipar_espada(obj3)
+    Elfo.equipar_espada(Espada1)
+    
 
 # Realizar un ataque del personaje al dragón
-if obj1.espada is not None:
-    obj1.atacar(obj2)
+if Elfo.espada is not None:
+    Elfo.atacar(obj2)
     print(f"{obj2.raza} tiene {obj2.vida} puntos de vida restantes.")
