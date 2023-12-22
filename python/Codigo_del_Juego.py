@@ -1,108 +1,21 @@
+from Clase_Personaje import Personaje
+from Clase_Espada import Espada
+from Clase_Dragon import Dragon
 import random
 import tkinter as tk
-#random.randint()
-class Espada:
-    def __init__(self, daño, nombre, x, y):
-        self.daño = daño
-        self.x = x
-        self.y = y
-        self.nombre = nombre
-
-    def mover_arriba(self):
-        self.y += 1
-
-    def mover_abajo(self):
-        self.y -= 1
-
-    def mover_izquierda(self):
-        self.x -= 1
-
-    def mover_derecha(self):
-        self.x += 1
-
-    def asignar_nombre(self):
-        self.nombre = (input("ingrese el nombre de su espada: "))
-        return self.nombre
-
-class Personaje:
-    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y,nombre):
-        self.raza = raza
-        self.fuerza = fuerza
-        self.velocidad = velocidad
-        self.agilidad = agilidad
-        self.sigilo = sigilo
-        self.vida = vida
-        self.x = x
-        self.y = y
-        self.espada = None
-        self.nombre = nombre
-    
-    def equipar_espada(self, espada):
-        self.espada = espada
-
-    def movimiento(self, direccion):
-        direccion = (input("ingrese a que direccion quiere ir: "))
-        print(""" opciones :
-        -arriba
-        -abajo
-        -izquierda
-        -derecha """)
-
-        if direccion == "arriba":
-            self.y += self.velocidad
-        elif direccion == "abajo":
-            self.y -= self.velocidad
-        elif direccion == "izquierda":
-            self.x -= self.velocidad
-        elif direccion == "derecha":
-            self.x += self.velocidad
-    
-
-"""ventana = tk.Tk()
-
-ventana.title("Ejemplo de botón")
-
-boton = tk.Button(ventana, text="Presionar el botón", command=)
-boton.pack()
-
-ventana.mainloop()"""
-
-
-class Dragon:
-    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y):
-        self.raza = raza
-        self.fuerza = fuerza
-        self.velocidad = velocidad
-        self.agilidad = agilidad
-        self.sigilo = sigilo
-        self.vida = vida
-        self.x = x
-        self.y = y
-    
-    def mover_arriba(self):
-        self.y += 1
-
-    def mover_abajo(self):
-        self.y -= 1
-
-    def mover_izquierda(self):
-        self.x -= 1
-
-    def mover_derecha(self):
-        self.x += 1
-
-    def atacar(self, objetivo):
-        danio_total = self.fuerza
-        objetivo.vida -= danio_total
-        print(f"{self.raza} atacó a {objetivo.raza} con un daño de {danio_total}")
-
 
 # Crear objetos
-Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 2, 2)
-Dragon1 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5)
-Excalibur = Espada(500, "nombre", 2, 2)
+Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0, "nombre")
+Dragon1 = Dragon("Dragon", 300, 200, 100, 100, 1000, 5, 5, "Smaug")
+Excalibur = Espada(500, "nombre", 0, 1)
 
-
+# Comienzo
+if Elfo.x == Elfo.x and Elfo.y == Elfo.y:
+    print(f"###Actualmente estas en la cordenada x{Elfo.x}-y{Elfo.y}###")
+    print("**En la coordenada x0-y1 esta excalibur** **en la coordenada x1-y0 hay una trampa**")
+    
+    Elfo.movimiento()
+    print(f"Actualmente estas en la coordenada x{Elfo.x}-y{Elfo.y}")
 
 # Verificar colisión entre el personaje y la espada
 if Elfo.x == Excalibur.x and Elfo.y == Excalibur.y:
@@ -123,6 +36,12 @@ def ataque_personaje():
 # Realizar un ataque del personaje al dragón
 if Elfo.espada is not None:
     ataque_personaje()
-    print(f"{Dragon1.raza} tiene {Dragon1.vida} puntos de vida restantes.")
+    print(f"El Dragon {Dragon1.nombre} tiene {Dragon1.vida} puntos de vida restantes.")
 
+# trampa
+if Elfo.x == 1 and Elfo.y == 0:
+    Elfo.vida = 0
+
+if Elfo.vida == 0:
+    print("Has caido en una trama, tu personaje esta **muerto**(x_x)")
 

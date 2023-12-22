@@ -1,5 +1,5 @@
 class Personaje:
-    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y):
+    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y, nombre):
         self.raza = raza
         self.fuerza = fuerza
         self.velocidad = velocidad
@@ -9,27 +9,31 @@ class Personaje:
         self.x = x
         self.y = y
         self.espada = None
+        self.nombre = nombre
     
     def equipar_espada(self, espada):
         self.espada = espada
 
-    def movimiento(self, direccion):
-        direccion = (input("ingrese a que direccion quiere ir: "))
-        print(""" opciones :
-        -arriba
-        -abajo
-        -izquierda
-        -derecha """)
-
+    def movimiento(self):
+        menu = """ingrese a que direccion quiere ir:
+            opciones :
+            ####-arriba ######
+            ####-abajo #######
+            ####-izquierda ###
+            ####-derecha ##### """
+        print(menu)
+        
+        direccion = (input("--> "))
+        
         if direccion == "arriba":
-            self.y += self.velocidad
+            self.y += 1
         elif direccion == "abajo":
-            self.y -= self.velocidad
+            self.y -= 1
         elif direccion == "izquierda":
-            self.x -= self.velocidad
+            self.x -= 1
         elif direccion == "derecha":
-            self.x += self.velocidad
+            self.x += 1
 
-
-
-
+    def asignar_nombre(self):
+        self.nombre = (input("ingrese el nombre de su espada: "))
+        return self.nombre
