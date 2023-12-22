@@ -98,6 +98,18 @@ header{
     text-align: right;
 }
 /*colores*/
-.colorblanco{
+.colorBlanco{
     color: white;
+}
+
+.colorAzul{
+    color: #0d2033;
+}
+
+.colorDorado{
+    color: rgb(207, 155, 0);
+}
+/*colores de Fondo*/
+.colorfondoP{
+    background-color: black;
 }

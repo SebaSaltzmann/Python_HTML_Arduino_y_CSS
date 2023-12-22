@@ -25,7 +25,7 @@ class Espada:
         return self.nombre
 
 class Personaje:
-    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y):
+    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y,nombre):
         self.raza = raza
         self.fuerza = fuerza
         self.velocidad = velocidad
@@ -35,6 +35,7 @@ class Personaje:
         self.x = x
         self.y = y
         self.espada = None
+        self.nombre = nombre
     
     def equipar_espada(self, espada):
         self.espada = espada
@@ -123,3 +124,5 @@ def ataque_personaje():
 if Elfo.espada is not None:
     ataque_personaje()
     print(f"{Dragon1.raza} tiene {Dragon1.vida} puntos de vida restantes.")
+
+
