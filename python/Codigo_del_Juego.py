@@ -1,8 +1,9 @@
 from Clase_Personaje import Personaje
 from Clase_Espada import Espada
 from Clase_Dragon import Dragon
-import random
 import tkinter as tk
+import pygame
+import random
 
 # Crear objetos
 Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0, "nombre")

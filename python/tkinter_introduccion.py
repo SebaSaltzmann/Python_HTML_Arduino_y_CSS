@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 # Ventana tkinter
 ventana = tk.Tk()
 palabra = tk.StringVar(ventana)
