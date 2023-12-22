@@ -72,6 +72,7 @@
 }
 /* tablas */
 table, th, td {
+    
     border: 1px solid rgb(0, 0, 0);
     }
   
@@ -107,9 +108,25 @@ header{
 }
 
 .colorDorado{
-    color: rgb(207, 155, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
 /*colores de Fondo*/
 .colorfondoP{
     background-color: black;
 }
+
+.alto {
+    height: 50%;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    margin: auto;
+}
+
+button {
+    background-color: #0a141d;
+    border-start-start-radius: 5px;
+    }
