@@ -1,4 +1,4 @@
-class Dragon:
+class Enemigo:
     def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y, nombre):
         self.raza = raza
         self.fuerza = fuerza
