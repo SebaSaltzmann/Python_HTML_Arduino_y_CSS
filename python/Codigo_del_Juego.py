@@ -27,9 +27,9 @@ if Elfo.x == Excalibur.x and Elfo.y == Excalibur.y:
 # Ataque de Elfo
 def ataque_personaje():
     if Excalibur is not None:
-        danio_total = Elfo.fuerza + Excalibur.daño
-        Dragon1.vida -= danio_total
-        print(f"{Elfo.raza} atacó a {Dragon1.raza} con un daño de {danio_total}")
+        daño_total = Elfo.fuerza + Excalibur.daño
+        Dragon1.vida -= daño_total
+        print(f"{Elfo.raza} atacó a {Dragon1.raza} con un daño de {daño_total}")
     else:
         print("No tienes una espada equipada.")
 
