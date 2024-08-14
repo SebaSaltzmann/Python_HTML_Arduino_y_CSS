@@ -1,5 +1,5 @@
 class Enemigo:
-    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y, nombre):
+    def __init__(self, raza, fuerza, velocidad, agilidad, sigilo, vida, x, y, nombre,sprite):
         self.raza = raza
         self.fuerza = fuerza
         self.velocidad = velocidad
@@ -9,6 +9,7 @@ class Enemigo:
         self.nombre = nombre
         self.x = x
         self.y = y
+        self.sprite = sprite
     
     def mover_arriba(self):
         self.y += 1

@@ -1,5 +1,5 @@
 from Clase_Personaje import Personaje
-from Clase_Espada import Espada
+from Clase_Item import Item
 from Clase_Enemigo import Enemigo
 import tkinter as tk
 import pygame
@@ -8,7 +8,7 @@ import random
 # Crear objetos
 Elfo = Personaje("Elfo", 150, 200, 800, 400, 800, 0, 0, "nombre")
 Dragon1 = Enemigo("Dragon", 300, 200, 100, 100, 1000, 5, 5, "Smaug")
-Excalibur = Espada(500, "nombre", 0, 1)
+Excalibur = Item(500, "nombre", 0, 1)
 
 # Comienzo
 if Elfo.x == Elfo.x and Elfo.y == Elfo.y:
