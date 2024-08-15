@@ -15,6 +15,8 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
+CYAN = (0, 255, 255)
+YELLOW = (255, 255, 0)
 
 # Clase para el personaje
 class Player(pygame.sprite.Sprite):
@@ -25,10 +27,13 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         self.health = 100
+        self.mana = 100  # Nueva barra de maná
         self.attack_power = 10
         self.defense_power = 5
         self.magic_power = 20
         self.defending = False
+        self.attacking = False
+        self.attack_timer = 0
 
     def update(self, enemies, projectiles):
         keys = pygame.key.get_pressed()
@@ -53,22 +58,42 @@ class Player(pygame.sprite.Sprite):
                 pygame.quit()
                 quit()
 
+        if self.attacking:
+            self.attack_timer -= 1
+            if self.attack_timer <= 0:
+                self.attacking = False
+
     def attack(self):
-        print("Ataque físico!")
+        if not self.attacking:
+            self.attacking = True
+            self.attack_timer = 10  # Duración del ataque en cuadros
+            print("Ataque físico!")
 
     def defend(self):
         self.defending = True
 
     def magic_attack(self, projectiles):
-        print("Ataque mágico!")
-        projectile = Projectile(self.rect.centerx, self.rect.top)
-        projectiles.add(projectile)
+        if self.mana >= 10:  # Verifica si el jugador tiene suficiente maná
+            print("Ataque mágico!")
+            projectile = Projectile(self.rect.centerx, self.rect.top)
+            projectiles.add(projectile)
+            self.mana -= 10  # Reduce el maná
 
     def stop_defending(self):
         self.defending = False
 
     def draw_health_bar(self, surface):
         pygame.draw.rect(surface, RED, (10, 10, self.health * 2, 20))
+
+    def draw_mana_bar(self, surface):
+        pygame.draw.rect(surface, CYAN, (10, 40, self.mana * 2, 20))  # Dibuja la barra de maná
+
+    def draw_attack(self, surface):
+        if self.attacking:
+            attack_rect = pygame.Rect(self.rect.right, self.rect.centery - 10, 20, 20)  # Posición y tamaño del "puño"
+            pygame.draw.rect(surface, YELLOW, attack_rect)
+            return attack_rect
+        return None
 
 # Clase para los proyectiles mágicos
 class Projectile(pygame.sprite.Sprite):
@@ -152,10 +177,19 @@ def main():
                 enemy.health -= player.magic_power
                 projectile.kill()
 
+        # Detectar colisiones entre el ataque físico (puño) y enemigos
+        attack_rect = player.draw_attack(screen)
+        if attack_rect:
+            collided_enemies = [enemy for enemy in enemies if attack_rect.colliderect(enemy.rect)]
+            for enemy in collided_enemies:
+                enemy.health -= player.attack_power
+
         screen.fill(BLACK)
         all_sprites.draw(screen)
         projectiles.draw(screen)
         player.draw_health_bar(screen)
+        player.draw_mana_bar(screen)  # Dibuja la barra de maná
+        player.draw_attack(screen)  # Dibuja el ataque físico (puño)
         pygame.display.flip()
         clock.tick(60)
 
