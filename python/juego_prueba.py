@@ -1,10 +1,8 @@
 import pygame
 import random
 
-# Inicialización de Pygame
 pygame.init()
 
-# Configuración de pantalla
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -18,7 +16,7 @@ BLUE = (0, 0, 255)
 CYAN = (0, 255, 255)
 YELLOW = (255, 255, 0)
 
-# Clase para el personaje
+# Clase personaje
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -27,7 +25,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         self.health = 100
-        self.mana = 100  # Nueva barra de maná
+        self.mana = 100
         self.attack_power = 10
         self.defense_power = 5
         self.magic_power = 20
@@ -46,7 +44,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_DOWN]:
             self.rect.y += 5
 
-        # Detección de colisiones
+        #colisiones
         collided_enemies = pygame.sprite.spritecollide(self, enemies, False)
         for enemy in collided_enemies:
             if self.defending:
