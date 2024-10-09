@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 90vh;
+    width: 80vw;
+}
+.row {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 600px; 
+}
+
+.box, .box1, .box2 {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 40%; 
+}
+.box {
+    background-color: #be1313;
+}
+.box1 {
+    background-color: #211a1e;
+}
+.box2 {
+    background-color: #fff;
+    width: 100%;
+}
+.box h2, .box1 h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.containerMarcador {
+    text-align: center;
+}
+input, button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+.blanco {
+    color: white;
+}
+
+.rojo{
+    color:#be1313;
+}
