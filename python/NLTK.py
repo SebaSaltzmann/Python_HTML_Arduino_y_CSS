@@ -1,6 +1,3 @@
-# Instala NLTK si no lo tienes instalado
-# pip install nltk
-
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
