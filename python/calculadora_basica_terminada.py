@@ -22,7 +22,6 @@ def menu ():
     opcion1=int(input("Ingrese la operacion a realizar: "))
     return opcion1
 
-
 #operaciones basicas
 def suma(a,b):
     return a+b
@@ -62,4 +61,22 @@ if OB == 1:
                 print(division(num1,num2))
             elif opcion2==4:
                 print(multiplicacion(num1,num2))
-#elif OB == 2:
+elif OB == 2:
+
+    while True:
+
+        print("1_Calculo ceros")
+        print("2_Salir")
+
+        OP = int(input("ingrese una opción: "))
+
+
+        if OP == 1:
+            num1 = float(input("ingrese el primer numero: "))
+            num2 = float(input("ingrese el segundo numero: "))
+            num3 = float(input("ingrese el segundo numero: "))
+
+            print(ceros(num1,num2,num3))
+        else:
+            print("**fin del progrma**")
+            break
