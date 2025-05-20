@@ -7,6 +7,8 @@ from kivymd.uix.toolbar import MDTopAppBar
 
 class ContadorApp(MDApp):
     def build(self):
+        self.theme_cls.theme_style = "Dark"  
+        self.theme_cls.primary_palette = "BlueGray"
         self.contador = 0  
 
         layout = MDBoxLayout(orientation="vertical", padding=20)  
